@@ -1,0 +1,77 @@
+#include<bits/stdc++.h>
+using namespace std;
+void copyMove(int arr1[],int arr2[],int size1,int size2);
+void pasteMove(int arr1[],int arr2[],int size1,int size2);
+void leftMove(int arr[],int size);
+void printArray(int arr[],int size);
+void leftRotate(int arr1[],int arr2[],int size1,int size2,int count)
+{
+    int i;
+    for(i=0;i<count;i++)
+    {
+        copyMove(arr1,arr2,size1,size2);
+        cout<<"array1 now contains: "<<"\n";
+        printArray(arr1,size1);
+        cout<<"array2 now contains: "<<"\n";
+        printArray(arr2,size2);
+        leftMove(arr1,size1);
+        cout<<"array1 now contains: "<<"\n";
+        printArray(arr1,size1);
+        cout<<"array2 now contains: "<<"\n";
+        printArray(arr2,size2);
+        pasteMove(arr1,arr2,size1,size2);
+        cout<<"array1 now contains: "<<"\n";
+        printArray(arr1,size1);
+        cout<<"array2 now contains: "<<"\n";
+        printArray(arr2,size2);
+    }
+}
+void copyMove(int arr1[],int arr2[],int size1,int size2)
+{
+    int i;
+    for(i=0;i<size1-1;i++)
+    {
+        int temp;
+        temp=arr1[i];
+        arr2[i]=temp;
+    }
+}
+void leftMove(int arr[],int size)
+{
+    int i;
+    for(i=0;i<size-1;i++)
+    {
+        arr[i]=arr[i+1];
+    }
+}
+void pasteMove(int arr1[],int arr2[],int size1,int size2)
+{
+    int i;
+    for(i=0;i<size2-1;i++)
+    {
+        int temp;
+        temp=arr2[i];
+        arr1[i]=temp;
+    }
+}
+void printArray(int arr[],int size)
+{
+    int i;
+    for(i=0;i<size;i++)
+    {
+        cout<<arr[i]<<"\n";
+    }
+}
+int main()
+{ 
+    int arr1[]={1, 2, 3, 4, 5, 6, 7};
+    int arr2[2];
+    cout<<"Before array rotation";
+    printArray(arr1,7);
+    printArray(arr2,2);
+    leftRotate(arr1,arr2,7,2,2);
+    cout<<"After array rotation";
+    printArray(arr1,7);
+    printArray(arr2,2);
+    return 0;
+}
