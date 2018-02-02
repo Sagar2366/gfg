@@ -1,0 +1,31 @@
+// Write a C program that, given an array A[] of n numbers and another number x, 
+determines whether or not there exist two elements in S whose sum is exactly x. 
+
+#include<bits/stdc++.h>
+using namespace std;
+#define MAX 10
+void printPairs(int arr[],int size,int sum)
+{
+    bool bin_map[MAX]={0};
+    int i,diff;
+    for(i=0;i<size;i++)
+    {
+       diff=sum-arr[i];
+       if(diff>=0 && bin_map[diff]==1)
+       {
+           cout<<"pair for sum is : "<<arr[i]<<"+"<<diff<<"="<<sum<<"\n";
+       }
+       bin_map[arr[i]]=1;
+    }
+}
+int  main()
+{
+    int arr[] = {1, 4, 45, 6, 10, 8};
+	printPairs(arr,6,16);
+    return 0;
+}
+
+Output:
+
+pair for sum is : 4+12=16
+pair for sum is : 10+6=16
