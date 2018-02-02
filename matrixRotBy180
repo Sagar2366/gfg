@@ -1,0 +1,104 @@
+#include <bits/stdc++.h>
+#define n 3
+using namespace std;
+void transpose(int mat[n][n])
+{
+    int i,j;
+    for(i=0;i<n;i++)
+    {
+        for(j=i;j<n;j++)
+        {
+           swap(mat[i][j],mat[j][i]);
+        }
+        cout<<"\n";
+    }
+}
+void printMat(int mat[n][n])
+{
+     int i,j;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+          cout<<mat[i][j]<<" ";
+        }
+        cout<<"\n";
+    }
+}
+void reverseCol(int mat[n][n])
+{
+    int i,j,k;
+    for(i=0;i<n;i++)
+    {
+        for(j=0,k=n-1;j<k;j++,k--)
+        {
+          swap(mat[j][i],mat[k][i]);
+        }
+        cout<<"\n";
+    } 
+}
+
+void rotate(int mat[n][n])
+{
+    int i,j;
+    for(i=n-1;i>=0;i--)
+    {
+        for(j=n-1;j>=0;j--)
+        {
+            cout<<mat[i][j]<<" ";
+        }
+        cout<<"\n";
+    }
+}
+int main() {
+	int mat[n][n]={{ 1, 2, 3 },{ 4, 5, 6 },{ 7, 8, 9 }};
+	cout<<"Before transpose:"<<"\n";
+	printMat(mat);
+	transpose(mat);
+	cout<<"After transpose of an matrix:"<<"\n";
+	printMat(mat);
+	reverseCol(mat);
+	cout<<"After reversing an matrix:"<<"\n";
+	printMat(mat);
+	transpose(mat);
+	cout<<"After transpose of an matrix:"<<"\n";
+	printMat(mat);
+	reverseCol(mat);
+	cout<<"After reversing an matrix:"<<"\n";
+	printMat(mat);
+	return 0;
+  }
+  
+  
+  Before transpose:
+1 2 3 
+4 5 6 
+7 8 9 
+
+
+
+After transpose of an matrix:
+1 4 7 
+2 5 8 
+3 6 9 
+
+
+
+After reversing an matrix:
+3 6 9 
+2 5 8 
+1 4 7 
+
+
+
+After transpose of an matrix:
+3 2 1 
+6 5 4 
+9 8 7 
+
+
+
+After reversing an matrix:
+9 8 7 
+6 5 4 
+3 2 1 
