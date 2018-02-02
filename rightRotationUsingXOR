@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int bin;
+    cout<<"before right rotation: "<<"\n";
+    cin>>bin;
+    cout<<bin<<"\n";
+    int out=(bin>>2 |(bin<<(32-2)));
+    cout<<"after right rotation: "<<"\n";
+    cout<<out;
+}
+
+
+
+Output:
+
+before right rotation: 
+16
+after right rotation: 
+4
