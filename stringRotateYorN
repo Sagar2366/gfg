@@ -1,0 +1,39 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+
+int areRotations(char *str1,char* str2)
+{
+int size1 = strlen(str1);
+int size2 = strlen(str2);
+char *temp;
+void *ptr;
+if (size1 != size2)
+	return 0;
+temp = (char *)malloc(sizeof(char)*(size1*2 + 1));
+temp[0] = '\0';
+strcat(temp, str1);
+strcat(temp, str1);
+ptr = strstr(temp, str2);
+free(temp);
+if (ptr != NULL)
+	return 1;
+else
+	return 0;
+    
+    
+}
+int main() {
+	char *str1 = "ACDD";
+	char *str2 = "ACDD";
+	if (areRotations(str1, str2))
+	cout<<"Strings are rotations of each other";
+	else
+	cout<<"Strings are not rotations of each other";
+	return 0;
+}
+
+
+Output:
+
+Strings are rotations of each other
