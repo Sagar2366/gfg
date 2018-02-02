@@ -1,0 +1,41 @@
+// C++ program for reversal algorithm of array rotation
+#include<bits/stdc++.h>
+using namespace std;
+void printArray(int arr[], int size);
+void rvereseArray(int arr[], int start, int end);
+void leftRotate(int arr[], int d, int n)
+{
+	rvereseArray(arr, 0, d-1);
+	rvereseArray(arr, d, n-1);
+	rvereseArray(arr, 0, n-1);
+}
+void printArray(int arr[], int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+	    cout<<arr[i]<<"\n";
+	}
+}
+void rvereseArray(int arr[], int start, int end)
+{
+	int temp;
+	while (start < end)
+	{
+		temp = arr[start];
+		arr[start] = arr[end];
+		arr[end] = temp;
+		start++;
+		end--;
+	}
+}
+
+int main()
+{
+	int arr[8] = {1,2,3,4,5,6,7,8};
+	int size = sizeof(arr)/sizeof(arr[0]);
+	int count = 2;
+	leftRotate(arr,count,size);
+	printArray(arr,size);
+	return 0;
+}
