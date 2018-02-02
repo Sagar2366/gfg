@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+void leftrot(int arr[],int size);
+void leftRotByCount(int arr[],int size,int count)
+{
+    int i;
+    for(i=0;i<count;i++)
+    {
+        leftrot(arr,size);
+    }
+}
+void leftrot(int arr[],int size)
+{
+    int temp=arr[size-1],i;
+    for(i=size-1;i>0;i--)
+    {
+        arr[i]=arr[i-1];
+    }
+    arr[0]=temp;
+}
+void printarray(int arr[],int size)
+{
+    int i;
+    for(i=0;i<size;i++)
+    {
+        cout<<arr[i]<<"\n";
+    }
+}
+int main()
+{
+    int arr[]={1,5,78,97,7,2,70};
+    int size=sizeof(arr)/sizeof(arr[0]);
+    cout<<"before";
+    printarray(arr,size);
+    int count;
+    cin>>count;
+    leftRotByCount(arr,size,count);
+    cout<<"after";
+     printarray(arr,size);
+    return 0;
+}
+
+Output:
+
+before1
+5
+78
+97
+7
+2
+70
+after2
+70
+1
+5
+78
+97
+7
