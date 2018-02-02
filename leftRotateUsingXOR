@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int bin;
+    cout<<"before left rotation: "<<"\n";
+    cin>>bin;
+    cout<<bin<<"\n";
+    int out=(bin<<2 |(bin>>(32-2)));
+    cout<<"after left rotation: "<<"\n";
+    cout<<out;
+}
+
+Output:
+
+before left rotation: 
+16
+after left rotation: 
+64
