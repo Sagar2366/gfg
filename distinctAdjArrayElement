@@ -1,0 +1,32 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void distinctAdjacentElement(int a[], int n)
+{
+    map<int,int>m;
+    for(int i=0;i<n;++i)
+    {
+        m[a[i]]++;
+    }
+    int mx=0;
+    for(int i=0;i<n;++i)
+    {
+        	if(mx < m[a[i]])
+        	{
+			mx = m[a[i]];
+        	}
+    }
+    if (mx>(n + 1)/2)
+		cout << "NO" << endl;
+	else
+		cout << "YES" << endl;
+}
+int main() {
+	int a[] = { 7, 7, 7, 7 };
+	int n = sizeof(a) / sizeof(a[0]);
+	distinctAdjacentElement(a, n);
+	return 0;
+}
+
+Output:
+NO
