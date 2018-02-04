@@ -1,0 +1,138 @@
+#include <iostream>
+#include<bits/stdc++.h>
+#include<vector>
+#define MAX 1000
+using namespace std;
+class Stack
+{
+  int min,size;
+  public:
+  Stack()
+  {
+      min=9999;
+      size=-1;
+  }
+  vector<pair<int,int>>arr;
+  int getLastElement();
+  int addElement(int x);
+  int removeLastElement();
+  int getMin();
+};
+int Stack::addElement(int x)
+{
+ if(size>MAX)
+ {
+     cout<<"overflow";
+     return 0;
+ }
+if(x<min)
+{
+    min=x;
+}
+arr.push_back(make_pair(x,min));
+size++;
+return 1;
+}
+int Stack::getLastElement()
+{
+    if(size<0)
+    {
+        cout<<"stack is empty";
+        return 0;
+    }
+    else
+    {
+    return arr[size].first;
+    }
+}
+
+int Stack:: removeLastElement()
+{
+if(size<0)   
+{
+    cout<<"underflow";
+}
+if(size>0 && arr[size-1].second>arr[size].second)
+{
+    min=arr[size-1].second;
+}
+arr.pop_back();
+size--;
+return 1;
+}
+int Stack::getMin()
+{
+    if(size<0)
+    {
+        cout<<"stack is empty";
+        return 0;
+    }
+    else
+    {
+    return arr[size].second;
+    }
+}
+int main() {
+    Stack s;
+    int success = s.addElement(5);
+	if (success == 1)
+		cout << "5 inserted successfully\n";
+
+	success = s.addElement(7);
+	if (success == 1)
+		cout << "7 inserted successfully\n";
+
+	success = s.addElement(3);
+	if (success == 1)
+		cout << "3 inserted successfully\n";
+	int min1 = s.getMin();
+	cout << "min element :: " << min1 << endl;
+
+	success = s.removeLastElement();
+	if (success == 1)
+		cout << "removed successfully\n";
+
+	success = s.addElement(2);
+	if (success == 1)
+		cout << "2 inserted successfully\n";
+
+	success = s.addElement(9);
+	if (success == 1)
+		cout << "9 inserted successfully\n";
+	int last = s.getLastElement();
+	cout << "Last element :: " << last << endl;
+
+	success = s.addElement(0);
+	if (success == 1)
+		cout << "0 inserted successfully\n";
+	min1 = s.getMin();
+	cout << "min element :: " << min1 << endl;
+
+	success = s.removeLastElement();
+	if (success == 1)
+		cout << "removed successfully\n";
+
+	success = s.addElement(11);
+	if (success == 1)
+		cout << "11 inserted successfully\n";
+	min1 = s.getMin();
+	cout << "min element :: " << min1 << endl;
+	return 0;
+}
+
+
+
+Output:
+5 inserted successfully
+7 inserted successfully
+3 inserted successfully
+min element :: 3
+removed successfully
+2 inserted successfully
+9 inserted successfully
+Last element :: 9
+0 inserted successfully
+min element :: 0
+removed successfully
+11 inserted successfully
+min element :: 2
