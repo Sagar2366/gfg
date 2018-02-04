@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+#include<stack>
+using namespace std;
+void showStack(stack<int>v)
+{
+  while(!v.empty())
+  {
+      cout<<v.top()<<endl;
+      v.pop();
+  }
+  cout<<endl;
+}
+int main()
+{
+    stack<int>v;
+    v.push(10);
+    v.push(20);
+    v.push(30);
+    showStack(v);
+    cout<<"stack is empty or not: "<<v.empty()<<endl;
+    cout<<"size of an stack is: "<<v.size()<<endl;
+    v.pop();
+    v.pop();
+    cout<<"stack is empty or not: "<<v.empty()<<endl;
+    cout<<"size of an stack is: "<<v.size()<<endl;
+    showStack(v);
+}
+
+
+Output:
+
+30
+20
+10
+
+stack is empty or not: 0
+size of an stack is: 3
+stack is empty or not: 0
+size of an stack is: 1
+10
