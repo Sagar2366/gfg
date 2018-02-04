@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+#include<stack>
+stack<int> sortstack(stack<int>& input)
+{
+    stack<int>tempstack;
+    while(!input.empty())
+    {
+        int i=input.top();
+        input.pop();
+        while(!tempstack.empty() && i < tempstack.top())
+        {
+            input.push(tempstack.top());
+			tempstack.pop();
+        }
+        tempstack.push(i);
+    }
+    return tempstack;
+}
+int main() {
+	stack<int>input;
+	input.push(34);
+	input.push(3);
+	input.push(31);
+	input.push(98);
+	input.push(92);
+	input.push(23);
+    stack<int>tempstack=sortstack(input);
+    while(!tempstack.empty())
+    {
+        cout<<tempstack.top();
+        cout<<" ";
+        tempstack.pop();
+    }
+	return 0;
+}
+
+
+Output:
+
+98 92 34 31 23 3 
